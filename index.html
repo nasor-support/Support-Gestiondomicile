@@ -35,10 +35,10 @@
       margin-bottom: 32px;
     }
 
-    header img {
-      width: 80px;
-      height: 80px;
-      border-radius: 20px;
+    .app-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
     }
 
     h1 {
@@ -68,10 +68,13 @@
     }
 
     .screenshot {
-      width: 100%;
-      border-radius: 12px;
-      margin-top: 20px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-top: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
     }
 
     .faq-item {
@@ -106,7 +109,7 @@
 
   <!-- HEADER -->
   <header>
-    <img src="icon.png" alt="Icône app">
+    <img class="app-icon" src="icon.png" alt="Icône app">
     <div>
       <h1>Gestion Domicile</h1>
       <p>Organisation simple et complète de votre logement</p>
