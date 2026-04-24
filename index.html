@@ -2,9 +2,18 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>Gestion Domicile – Support</title>
+  <title>Gestion Domicile – Support & Privacy Policy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Gestion Domicile, application macOS pour organiser votre logement, vos pièces, équipements, documents, travaux et garanties.">
+
+  <meta name="description" content="Gestion Domicile est une application macOS pour organiser votre logement, vos pièces, équipements, documents, travaux, garanties et entretiens. Support officiel et politique de confidentialité.">
+  <meta name="keywords" content="Gestion Domicile, macOS, maison, logement, documents, factures, garanties, entretien, travaux, support, privacy policy">
+  <meta name="author" content="Gestion Domicile">
+  <meta name="apple-itunes-app" content="app-id=6763304495">
+
+  <meta property="og:title" content="Gestion Domicile – Support">
+  <meta property="og:description" content="Organisez votre logement, vos documents, vos équipements et vos travaux sur macOS.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="icon.png">
 
   <link rel="icon" href="icon.png">
 
@@ -47,12 +56,34 @@
       margin: auto;
     }
 
+    .lang-switch {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      z-index: 10;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 12px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 8px 30px rgba(0,0,0,.12);
+    }
+
+    .lang-switch button {
+      border: 0;
+      background: transparent;
+      color: var(--text);
+      font-weight: 700;
+      cursor: pointer;
+      padding: 4px 8px;
+    }
+
     header {
       min-height: 92vh;
       display: flex;
       align-items: center;
       text-align: center;
-      padding: 64px 0 40px;
+      padding: 72px 0 40px;
     }
 
     .app-icon {
@@ -70,8 +101,18 @@
       margin: 0 0 22px;
     }
 
+    h2 {
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1;
+      letter-spacing: -.05em;
+      margin: 0 0 18px;
+      text-align: center;
+    }
+
+    h3 { margin-top: 0; }
+
     .lead {
-      max-width: 760px;
+      max-width: 780px;
       margin: 0 auto 28px;
       color: var(--muted);
       font-size: clamp(20px, 2.4vw, 28px);
@@ -90,17 +131,7 @@
       display: block;
     }
 
-    section {
-      padding: 72px 0;
-    }
-
-    h2 {
-      font-size: clamp(34px, 5vw, 56px);
-      line-height: 1;
-      letter-spacing: -.05em;
-      margin: 0 0 18px;
-      text-align: center;
-    }
+    section { padding: 72px 0; }
 
     .section-intro {
       max-width: 720px;
@@ -125,15 +156,9 @@
       box-shadow: 0 12px 40px rgba(0,0,0,.06);
     }
 
-    .card h3 {
-      margin: 0 0 8px;
-      font-size: 19px;
-    }
-
     .card p,
     .card li {
       color: var(--muted);
-      margin: 0;
     }
 
     .two-col {
@@ -141,13 +166,6 @@
       grid-template-columns: 1fr 1fr;
       gap: 18px;
     }
-
-    ul {
-      padding-left: 20px;
-      margin: 0;
-    }
-
-    li { margin-bottom: 10px; }
 
     .faq {
       max-width: 820px;
@@ -172,9 +190,7 @@
       position: relative;
     }
 
-    summary::-webkit-details-marker {
-      display: none;
-    }
+    summary::-webkit-details-marker { display: none; }
 
     summary::after {
       content: "+";
@@ -190,14 +206,8 @@
 
     details p {
       color: var(--muted);
+      padding-bottom: 20px;
       margin: 0;
-      padding: 0 0 20px;
-      animation: fadeIn .25s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-4px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     .support {
@@ -222,6 +232,24 @@
       font-weight: 700;
     }
 
+    .privacy {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .privacy h2 {
+      text-align: left;
+    }
+
+    .privacy h3 {
+      margin-top: 28px;
+    }
+
+    .privacy p,
+    .privacy li {
+      color: var(--muted);
+    }
+
     footer {
       text-align: center;
       color: var(--muted);
@@ -229,183 +257,307 @@
       font-size: 14px;
     }
 
+    [data-lang] { display: none; }
+    html.lang-fr [data-lang="fr"] { display: block; }
+    html.lang-en [data-lang="en"] { display: block; }
+
     @media (max-width: 900px) {
-      .grid,
-      .two-col {
-        grid-template-columns: 1fr 1fr;
-      }
+      .grid, .two-col { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 640px) {
-      header {
-        min-height: auto;
-        padding-top: 44px;
-      }
-
-      .grid,
-      .two-col {
-        grid-template-columns: 1fr;
-      }
-
-      .app-icon {
-        width: 92px;
-        height: 92px;
-      }
-
-      .appstore-badge {
-        height: 48px;
-      }
+      .grid, .two-col { grid-template-columns: 1fr; }
+      .app-icon { width: 92px; height: 92px; }
+      .appstore-badge { height: 48px; }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <div class="container">
-    <img class="app-icon" src="icon.png" alt="Icône Gestion Domicile">
+<div class="lang-switch">
+  <button onclick="setLang('fr')">FR</button>
+  <button onclick="setLang('en')">EN</button>
+</div>
 
-    <h1>Tout votre domicile, enfin organisé.</h1>
-
-    <p class="lead">
-      Gestion Domicile centralise vos pièces, équipements, documents, garanties,
-      travaux et entretiens dans une application macOS claire, locale et efficace.
-    </p>
-
-    <a href="https://apps.apple.com/app/6763304495" target="_blank" rel="noopener">
-      <img class="appstore-badge"
-           src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-           alt="Télécharger dans l’App Store">
-    </a>
-
-    <img class="hero-shot" src="screenshot.png" alt="Capture d’écran de l’application Gestion Domicile">
-  </div>
-</header>
-
-<main>
-
-<section>
-  <div class="container">
-    <h2>Une vue complète de votre logement</h2>
-    <p class="section-intro">
-      Retrouvez rapidement une facture, suivez vos garanties, planifiez l’entretien
-      et gardez un historique clair de votre domicile.
-    </p>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Tableau de bord</h3>
-        <p>Une synthèse de vos documents, garanties, tâches et éléments à compléter.</p>
-      </div>
-
-      <div class="card">
-        <h3>Pièces</h3>
-        <p>Créez et documentez vos pièces avec photo, type, étage et surface.</p>
-      </div>
-
-      <div class="card">
-        <h3>Équipements</h3>
-        <p>Suivez électroménager, mobilier, électronique et autres objets importants.</p>
-      </div>
-
-      <div class="card">
-        <h3>Documents</h3>
-        <p>Centralisez factures, contrats, assurances, notices et devis.</p>
-      </div>
-
-      <div class="card">
-        <h3>Travaux & entretien</h3>
-        <p>Planifiez les réparations, projets et actions à réaliser.</p>
-      </div>
-
-      <div class="card">
-        <h3>Chronologie</h3>
-        <p>Visualisez achats, interventions et événements dans le temps.</p>
-      </div>
-
-      <div class="card">
-        <h3>Import / export</h3>
-        <p>Sauvegardez et restaurez vos données simplement.</p>
-      </div>
-
-      <div class="card">
-        <h3>Mode Démo</h3>
-        <p>Découvrez l’application avec un domicile d’exemple.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container two-col">
-    <div class="card">
-      <h2 style="text-align:left;">Ce qui la différencie</h2>
-      <ul>
-        <li>Organisation claire : Domicile → Pièces → Objets → Documents.</li>
-        <li>Suivi complet : documents, tâches et événements réunis.</li>
-        <li>Interface macOS pensée pour le grand écran.</li>
-        <li>Données locales, sans compte ni service externe obligatoire.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2 style="text-align:left;">Idéal pour</h2>
-      <p>
-        Propriétaires, locataires, familles ou toute personne souhaitant garder
-        une gestion claire de son logement, de ses équipements et de ses documents,
-        sans dispersion.
+<div data-lang="fr">
+  <header>
+    <div class="container">
+      <img class="app-icon" src="icon.png" alt="Icône Gestion Domicile">
+      <h1>Tout votre domicile, enfin organisé.</h1>
+      <p class="lead">
+        Gestion Domicile centralise vos pièces, équipements, documents, garanties,
+        travaux et entretiens dans une application macOS claire, locale et efficace.
       </p>
-    </div>
-  </div>
-</section>
 
-<section>
-  <div class="container">
-    <h2>Questions fréquentes</h2>
-
-    <div class="faq">
-      <details>
-        <summary>Mes données sont-elles envoyées sur un serveur ?</summary>
-        <p>Non. Vos informations restent stockées localement sur votre Mac. Aucun compte n’est requis.</p>
-      </details>
-
-      <details>
-        <summary>Comment sauvegarder ou transférer mes données ?</summary>
-        <p>Utilisez les fonctions d’import / export intégrées à l’application pour sauvegarder un domicile ou le restaurer.</p>
-      </details>
-
-      <details>
-        <summary>Puis-je tester l’application sans saisir mes vraies données ?</summary>
-        <p>Oui. Le Mode Démo permet de créer automatiquement un domicile d’exemple.</p>
-      </details>
-
-      <details>
-        <summary>Comment signaler un problème ?</summary>
-        <p>Envoyez un email avec une description du problème, votre version de macOS et, si possible, une capture d’écran.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="support">
-      <h2>Besoin d’aide ?</h2>
-      <p>
-        Pour une question, un bug ou une suggestion d’amélioration, contactez le support.
-      </p>
-      <a class="email" href="mailto:gestiondomicile@icloud.com">
-        gestiondomicile@icloud.com
+      <a href="https://apps.apple.com/app/6763304495" target="_blank" rel="noopener">
+        <img class="appstore-badge" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Télécharger dans l’App Store">
       </a>
+
+      <img class="hero-shot" src="screenshot.png" alt="Capture d’écran de Gestion Domicile">
     </div>
-  </div>
-</section>
+  </header>
 
-</main>
+  <main>
+    <section>
+      <div class="container">
+        <h2>Une vue complète de votre logement</h2>
+        <p class="section-intro">
+          Retrouvez rapidement une facture, suivez vos garanties, planifiez l’entretien
+          et gardez un historique clair de votre domicile.
+        </p>
 
-<footer>
-  © Gestion Domicile · Page de support officielle · Hébergée avec GitHub Pages
-</footer>
+        <div class="grid">
+          <div class="card"><h3>Tableau de bord</h3><p>Vue synthétique des documents, tâches et garanties.</p></div>
+          <div class="card"><h3>Pièces</h3><p>Organisation détaillée de chaque pièce.</p></div>
+          <div class="card"><h3>Équipements</h3><p>Suivi des objets, appareils et installations.</p></div>
+          <div class="card"><h3>Documents</h3><p>Factures, contrats, assurances, notices et devis.</p></div>
+          <div class="card"><h3>Travaux</h3><p>Planification et suivi des entretiens et projets.</p></div>
+          <div class="card"><h3>Chronologie</h3><p>Historique des achats, interventions et événements.</p></div>
+          <div class="card"><h3>Import / export</h3><p>Sauvegarde et restauration de vos données.</p></div>
+          <div class="card"><h3>Mode Démo</h3><p>Découverte immédiate avec un domicile d’exemple.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container two-col">
+        <div class="card">
+          <h2 style="text-align:left;">Ce qui la différencie</h2>
+          <ul>
+            <li>Organisation claire : Domicile → Pièces → Objets → Documents.</li>
+            <li>Suivi complet dans le temps.</li>
+            <li>Interface macOS optimisée pour grand écran.</li>
+            <li>Données locales, sans compte obligatoire.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2 style="text-align:left;">Idéal pour</h2>
+          <p>
+            Propriétaires, locataires, familles ou toute personne souhaitant garder
+            une gestion claire de son logement, de ses équipements et de ses documents.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container faq">
+        <h2>FAQ</h2>
+
+        <details>
+          <summary>Mes données sont-elles envoyées sur un serveur ?</summary>
+          <p>Non. Vos informations restent stockées localement sur votre Mac. Aucun compte n’est requis.</p>
+        </details>
+
+        <details>
+          <summary>Comment sauvegarder ou transférer mes données ?</summary>
+          <p>Utilisez les fonctions d’import / export intégrées à l’application.</p>
+        </details>
+
+        <details>
+          <summary>Puis-je tester l’application sans saisir mes vraies données ?</summary>
+          <p>Oui. Le Mode Démo permet de créer automatiquement un domicile d’exemple.</p>
+        </details>
+
+        <details>
+          <summary>Comment signaler un problème ?</summary>
+          <p>Envoyez un email avec une description du problème, votre version de macOS et, si possible, une capture d’écran.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="support">
+      <div class="container">
+        <div class="support">
+          <h2>Support</h2>
+          <p>Une question, un bug ou une suggestion ?</p>
+          <a class="email" href="mailto:gestiondomicile@icloud.com">gestiondomicile@icloud.com</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="privacy">
+      <div class="container privacy card">
+        <h2>Politique de confidentialité</h2>
+        <p>Dernière mise à jour : 24 avril 2026</p>
+
+        <h3>Données collectées</h3>
+        <p>Gestion Domicile ne collecte pas de données personnelles via un serveur externe. L’application ne nécessite pas la création d’un compte.</p>
+
+        <h3>Stockage des données</h3>
+        <p>Les informations saisies dans l’application sont stockées localement sur votre Mac. Cela peut inclure des informations sur votre logement, vos pièces, vos équipements, vos documents, vos travaux et vos entretiens.</p>
+
+        <h3>Documents et fichiers</h3>
+        <p>Les documents ajoutés dans l’application restent associés à votre installation locale de l’application. Ils ne sont pas transmis automatiquement à un service externe par Gestion Domicile.</p>
+
+        <h3>Import et export</h3>
+        <p>L’application peut proposer des fonctions d’import et d’export afin de sauvegarder ou restaurer vos données. Vous êtes responsable de l’emplacement où vous stockez ces sauvegardes.</p>
+
+        <h3>Services tiers</h3>
+        <p>Gestion Domicile ne repose pas sur un service externe obligatoire pour fonctionner. Si vous choisissez de stocker vos sauvegardes dans iCloud, Dropbox, Google Drive ou tout autre service tiers, leurs propres politiques de confidentialité s’appliquent.</p>
+
+        <h3>Support</h3>
+        <p>Si vous contactez le support par email, les informations que vous fournissez volontairement seront utilisées uniquement pour répondre à votre demande.</p>
+
+        <h3>Contact</h3>
+        <p>Pour toute question concernant cette politique de confidentialité : <a href="mailto:gestiondomicile@icloud.com">gestiondomicile@icloud.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © Gestion Domicile · macOS · Version 1.0 ·
+    <a href="#privacy">Politique de confidentialité</a>
+  </footer>
+</div>
+
+<div data-lang="en">
+  <header>
+    <div class="container">
+      <img class="app-icon" src="icon.png" alt="Gestion Domicile app icon">
+      <h1>Your home, finally organized.</h1>
+      <p class="lead">
+        Gestion Domicile helps you organize rooms, equipment, documents, warranties,
+        maintenance and home projects in a clear, local and efficient macOS app.
+      </p>
+
+      <a href="https://apps.apple.com/app/6763304495" target="_blank" rel="noopener">
+        <img class="appstore-badge" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+      </a>
+
+      <img class="hero-shot" src="screenshot.png" alt="Screenshot of Gestion Domicile">
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <h2>A complete view of your home</h2>
+        <p class="section-intro">
+          Quickly find invoices, track warranties, plan maintenance
+          and keep a clear history of your home.
+        </p>
+
+        <div class="grid">
+          <div class="card"><h3>Dashboard</h3><p>A clear overview of documents, tasks and warranties.</p></div>
+          <div class="card"><h3>Rooms</h3><p>Organize and document every room in your home.</p></div>
+          <div class="card"><h3>Equipment</h3><p>Track appliances, furniture and important items.</p></div>
+          <div class="card"><h3>Documents</h3><p>Keep invoices, contracts, insurance files and manuals together.</p></div>
+          <div class="card"><h3>Maintenance</h3><p>Plan and follow repairs, projects and maintenance tasks.</p></div>
+          <div class="card"><h3>Timeline</h3><p>Keep a history of purchases, work and key events.</p></div>
+          <div class="card"><h3>Import / export</h3><p>Back up and restore your data.</p></div>
+          <div class="card"><h3>Demo Mode</h3><p>Discover the app with a sample home.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container two-col">
+        <div class="card">
+          <h2 style="text-align:left;">What makes it different</h2>
+          <ul>
+            <li>Clear structure: Home → Rooms → Items → Documents.</li>
+            <li>Complete long-term tracking.</li>
+            <li>macOS interface designed for larger screens.</li>
+            <li>Local data, no required account.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2 style="text-align:left;">Made for</h2>
+          <p>
+            Homeowners, renters, families and anyone who wants a clearer way
+            to manage home documents, equipment and maintenance.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container faq">
+        <h2>FAQ</h2>
+
+        <details>
+          <summary>Are my data sent to a server?</summary>
+          <p>No. Your information stays stored locally on your Mac. No account is required.</p>
+        </details>
+
+        <details>
+          <summary>How can I back up or transfer my data?</summary>
+          <p>Use the built-in import / export features.</p>
+        </details>
+
+        <details>
+          <summary>Can I try the app without entering real data?</summary>
+          <p>Yes. Demo Mode can create a sample home automatically.</p>
+        </details>
+
+        <details>
+          <summary>How do I report an issue?</summary>
+          <p>Send an email with a description, your macOS version and, if possible, a screenshot.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="support-en">
+      <div class="container">
+        <div class="support">
+          <h2>Support</h2>
+          <p>Questions, bugs or suggestions?</p>
+          <a class="email" href="mailto:gestiondomicile@icloud.com">gestiondomicile@icloud.com</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="privacy-en">
+      <div class="container privacy card">
+        <h2>Privacy Policy</h2>
+        <p>Last updated: April 24, 2026</p>
+
+        <h3>Data collection</h3>
+        <p>Gestion Domicile does not collect personal data through an external server. The app does not require account creation.</p>
+
+        <h3>Local storage</h3>
+        <p>Information entered in the app is stored locally on your Mac. This may include information about your home, rooms, equipment, documents, maintenance and projects.</p>
+
+        <h3>Documents and files</h3>
+        <p>Documents added to the app remain associated with your local installation. They are not automatically sent to an external service by Gestion Domicile.</p>
+
+        <h3>Import and export</h3>
+        <p>The app may provide import and export features to back up or restore your data. You are responsible for where you store exported backups.</p>
+
+        <h3>Third-party services</h3>
+        <p>Gestion Domicile does not require an external service to operate. If you choose to store backups in iCloud, Dropbox, Google Drive or another third-party service, their own privacy policies apply.</p>
+
+        <h3>Support</h3>
+        <p>If you contact support by email, the information you voluntarily provide will be used only to respond to your request.</p>
+
+        <h3>Contact</h3>
+        <p>For questions about this Privacy Policy: <a href="mailto:gestiondomicile@icloud.com">gestiondomicile@icloud.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © Gestion Domicile · macOS · Version 1.0 ·
+    <a href="#privacy-en">Privacy Policy</a>
+  </footer>
+</div>
+
+<script>
+  function setLang(lang) {
+    document.documentElement.classList.remove('lang-fr', 'lang-en');
+    document.documentElement.classList.add('lang-' + lang);
+    document.documentElement.lang = lang;
+    localStorage.setItem('preferredLanguage', lang);
+  }
+
+  const savedLang = localStorage.getItem('preferredLanguage');
+  const browserLang = navigator.language || navigator.userLanguage;
+  setLang(savedLang || (browserLang && browserLang.startsWith('fr') ? 'fr' : 'en'));
+</script>
 
 </body>
 </html>
