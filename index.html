@@ -2,24 +2,198 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>Support - Gestion domicile</title>
+  <title>Gestion Domicile – Support</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --bg: #f9fafb;
+      --card: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 24px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    header img {
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      font-size: 24px;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    .card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-top: 20px;
+    }
+
+    .features li {
+      margin-bottom: 10px;
+    }
+
+    .screenshot {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .faq-item {
+      margin-bottom: 16px;
+    }
+
+    .contact {
+      text-align: center;
+      margin-top: 40px;
+      padding: 30px;
+      background: var(--card);
+      border-radius: 14px;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Support - Gestion domicile</h1>
 
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <img src="icon.png" alt="Icône app">
+    <div>
+      <h1>Gestion Domicile</h1>
+      <p>Organisation simple et complète de votre logement</p>
+    </div>
+  </header>
+
+  <!-- DESCRIPTION -->
+  <div class="card">
+    <p>
+      Gestion Domicile est une application macOS pensée pour centraliser et organiser tout ce qui concerne votre logement : pièces, équipements, documents et suivi des travaux.
+      L’objectif est simple : retrouver rapidement une facture, savoir ce qui est couvert par une garantie, planifier l’entretien, et garder un historique clair de votre domicile — au même endroit.
+    </p>
+  </div>
+
+  <!-- SCREENSHOT -->
+  <img src="screenshot.png" class="screenshot" alt="Capture écran">
+
+  <!-- FEATURES -->
+  <h2>Fonctionnalités principales</h2>
+  <div class="card">
+    <ul class="features">
+      <li><strong>Mon domicile :</strong> tableau de bord avec documents, tâches et garanties à suivre.</li>
+      <li><strong>Gestion des pièces :</strong> photos, surface, type et informations utiles.</li>
+      <li><strong>Objets / équipements :</strong> suivi complet de vos équipements.</li>
+      <li><strong>Documents :</strong> factures, contrats, assurances centralisés.</li>
+      <li><strong>Travaux & entretien :</strong> planification et suivi.</li>
+      <li><strong>Chronologie :</strong> historique des événements importants.</li>
+      <li><strong>Import / export :</strong> sauvegarde et restauration.</li>
+      <li><strong>Mode Démo :</strong> découverte rapide.</li>
+    </ul>
+  </div>
+
+  <!-- DIFFERENCE -->
+  <h2>Ce qui différencie Gestion Domicile</h2>
+  <div class="card">
+    <ul>
+      <li>Organisation logique : Domicile → Pièces → Objets → Documents</li>
+      <li>Suivi dans le temps complet (documents + tâches + événements)</li>
+      <li>Interface macOS optimisée (navigation fluide, clavier, vues dédiées)</li>
+      <li>Données locales : aucune création de compte requise</li>
+    </ul>
+  </div>
+
+  <!-- IDEAL -->
+  <h2>Idéal pour</h2>
+  <div class="card">
+    <p>
+      Propriétaires, locataires, familles ou toute personne souhaitant garder une gestion claire et structurée de son logement sans dispersion.
+    </p>
+  </div>
+
+  <!-- FAQ -->
   <h2>FAQ</h2>
+  <div class="card">
+    <div class="faq-item">
+      <strong>Mes données sont-elles sécurisées ?</strong>
+      <p>Oui, toutes les données restent stockées localement sur votre Mac.</p>
+    </div>
 
-  <h3>Comment contacter le support ?</h3>
-  <p>Envoyez un email à <a href="mailto:gestiondomicile@icloud.com">gestiondomicile@icloud.com</a>.</p>
+    <div class="faq-item">
+      <strong>Comment sauvegarder mes données ?</strong>
+      <p>Utilisez la fonction d’export intégrée à l’application.</p>
+    </div>
 
-  <h3>Mes données sont-elles sauvegardées ?</h3>
-  <p>Les données sont stockées localement sur votre appareil.</p>
+    <div class="faq-item">
+      <strong>Comment signaler un bug ?</strong>
+      <p>Envoyez un email avec description et capture d’écran.</p>
+    </div>
+  </div>
 
-  <h3>Comment signaler un bug ?</h3>
-  <p>Merci d’envoyer un email avec une description du problème et, si possible, une capture d’écran.</p>
+  <!-- CONTACT -->
+  <div class="contact">
+    <h2>Contact Support</h2>
+    <p>
+      Pour toute question ou problème :
+      <br><br>
+      <a href="mailto:gestiondomicile@icloud.com">gestiondomicile@icloud.com</a>
+    </p>
+  </div>
 
-  <h2>Contact</h2>
-  <p><a href="mailto:gestiondomicile@icloud.com">gestiondomicile@icloud.com</a></p>
+  <!-- FOOTER -->
+  <footer>
+    Hébergé gratuitement via GitHub Pages
+  </footer>
+
+</div>
+
 </body>
 </html>
