@@ -1,0 +1,1077 @@
+<!doctype html>
+<html lang="fr" class="lang-fr">
+<head>
+  <meta charset="utf-8">
+  <title>Gestion Domicile – macOS & iOS – Support & Politique de confidentialité</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Gestion Domicile est disponible sur macOS et iOS pour organiser votre logement, vos pièces, équipements, documents et entretiens, avec synchronisation iCloud entre Mac et iPhone. Support officiel et politique de confidentialité.">
+  <meta name="keywords" content="Gestion Domicile, macOS, iOS, iPhone, Mac, iCloud, CloudKit, maison, logement, documents, factures, OCR, scan de factures, entretien, support, privacy policy">
+  <meta name="author" content="Gestion Domicile">
+  <meta property="og:title" content="Gestion Domicile – macOS & iOS">
+  <meta property="og:description" content="Un même domicile sur Mac et iPhone, synchronisé via iCloud.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="icon.png">
+
+  <link rel="icon" href="icon.png">
+
+  <style>
+    :root {
+      --bg: #f5f5f7;
+      --card: rgba(255,255,255,.80);
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --border: rgba(0,0,0,.08);
+      --shadow: 0 24px 70px rgba(0,0,0,.12);
+      --accent: #0071e3;
+      --soft-accent: rgba(0,113,227,.08);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #000;
+        --card: rgba(28,28,30,.78);
+        --text: #f5f5f7;
+        --muted: #a1a1a6;
+        --border: rgba(255,255,255,.12);
+        --shadow: 0 30px 90px rgba(0,0,0,.55);
+        --soft-accent: rgba(10,132,255,.16);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: auto;
+    }
+
+    .lang-switch {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      z-index: 20;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 12px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 8px 30px rgba(0,0,0,.12);
+    }
+
+    .lang-switch button {
+      border: 0;
+      background: transparent;
+      color: var(--text);
+      font-weight: 700;
+      cursor: pointer;
+      padding: 4px 8px;
+    }
+
+    header {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      padding: 92px 0 48px;
+    }
+
+    .app-icon {
+      width: 112px;
+      height: 112px;
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 92px);
+      line-height: .95;
+      letter-spacing: -.06em;
+      margin: 0 0 22px;
+    }
+
+    h2 {
+      font-size: clamp(34px, 5vw, 56px);
+      line-height: 1;
+      letter-spacing: -.05em;
+      margin: 0 0 18px;
+      text-align: center;
+    }
+
+    h3 { margin-top: 0; }
+
+    .lead {
+      max-width: 820px;
+      margin: 0 auto 22px;
+      color: var(--muted);
+      font-size: clamp(20px, 2.4vw, 28px);
+    }
+
+    .compatibility {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 auto 26px;
+      padding: 9px 15px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--card);
+      color: var(--muted);
+      font-weight: 650;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .store-actions {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin: 0 0 44px;
+    }
+
+    .store-action {
+      min-width: 220px;
+      padding: 14px 18px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .store-label {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .store-link {
+      font-size: 16px;
+      font-weight: 750;
+    }
+
+    .store-status {
+      color: var(--muted);
+      font-size: 16px;
+      font-weight: 650;
+    }
+
+    .device-showcase {
+      position: relative;
+      margin: 0 auto;
+      max-width: 1080px;
+      padding: 0 92px 18px 0;
+    }
+
+    .mac-shot {
+      width: 100%;
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      display: block;
+      background: var(--card);
+    }
+
+    .iphone-frame {
+      position: absolute;
+      right: 0;
+      bottom: -12px;
+      width: min(260px, 27%);
+      padding: 8px;
+      border-radius: 40px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: 0 24px 70px rgba(0,0,0,.20);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+    }
+
+    .ios-shot {
+      width: 100%;
+      display: block;
+      border-radius: 33px;
+    }
+
+    section { padding: 72px 0; }
+
+    .section-intro {
+      max-width: 760px;
+      margin: 0 auto 36px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      padding: 24px;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow: 0 12px 40px rgba(0,0,0,.06);
+    }
+
+    .card p,
+    .card li { color: var(--muted); }
+
+    .platform-kicker {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--soft-accent);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .sync-card {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      padding: 38px;
+    }
+
+    .sync-flow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 26px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .sync-node {
+      padding: 12px 16px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .faq {
+      max-width: 820px;
+      margin: auto;
+    }
+
+    details {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 0 22px;
+      margin-bottom: 14px;
+      overflow: hidden;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+    }
+
+    summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 20px 0;
+      font-weight: 700;
+      position: relative;
+      padding-right: 36px;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: "+";
+      position: absolute;
+      right: 0;
+      font-size: 24px;
+      transition: transform .25s ease;
+    }
+
+    details[open] summary::after { transform: rotate(45deg); }
+
+    details p {
+      color: var(--muted);
+      padding-bottom: 20px;
+      margin: 0;
+    }
+
+    .support {
+      text-align: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      padding: 42px 24px;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow: var(--shadow);
+    }
+
+    .support p {
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .email {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .privacy {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .privacy h2 { text-align: left; }
+    .privacy h3 { margin-top: 28px; }
+    .privacy p,
+    .privacy li { color: var(--muted); }
+
+    .privacy-note {
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: var(--soft-accent);
+      color: var(--text) !important;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 36px 16px 52px;
+      font-size: 14px;
+    }
+
+    [data-lang] { display: none; }
+    html.lang-fr [data-lang="fr"] { display: block; }
+    html.lang-en [data-lang="en"] { display: block; }
+
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr 1fr; }
+      .platform-grid { grid-template-columns: 1fr; }
+      .two-col { grid-template-columns: 1fr; }
+      .device-showcase { padding-right: 64px; }
+      .iphone-frame { width: min(220px, 30%); }
+    }
+
+    @media (max-width: 640px) {
+      header { min-height: auto; padding-top: 96px; }
+      .grid { grid-template-columns: 1fr; }
+      .app-icon { width: 92px; height: 92px; border-radius: 22px; }
+      section { padding: 56px 0; }
+      .device-showcase { padding: 0; }
+      .iphone-frame {
+        position: relative;
+        width: min(240px, 72%);
+        right: auto;
+        bottom: auto;
+        margin: -24px auto 0;
+      }
+      .mac-shot { border-radius: 20px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="lang-switch" aria-label="Language selector">
+    <button onclick="setLang('fr')">FR</button>
+    <button onclick="setLang('en')">EN</button>
+  </div>
+
+  <!-- ============================ FRANÇAIS ============================ -->
+  <div data-lang="fr">
+    <header>
+      <div class="container">
+        <img class="app-icon" src="icon.png" alt="Icône Gestion Domicile">
+        <h1>Votre domicile,<br>sur Mac et iPhone.</h1>
+        <p class="lead">
+          Gestion Domicile centralise les informations, équipements, documents et entretiens de votre logement
+          sur macOS et iOS. Grâce à iCloud, vos données restent synchronisées entre votre Mac et votre iPhone.
+        </p>
+        <div class="compatibility">macOS · iOS · iCloud</div>
+
+        <div class="store-actions">
+          <div class="store-action">
+            <span class="store-label">macOS · Version 2.0</span>
+            <a class="store-link" href="https://apps.apple.com/app/6763304495" target="_blank" rel="noopener">Voir sur l’App Store</a>
+          </div>
+          <div class="store-action" id="ios-store-card-fr">
+            <span class="store-label">iOS · iPhone</span>
+            <a id="ios-store-link-fr" class="store-link" href="#" target="_blank" rel="noopener" hidden>Voir sur l’App Store</a>
+            <span id="ios-store-status-fr" class="store-status">Bientôt disponible</span>
+          </div>
+        </div>
+
+        <div class="device-showcase">
+          <img class="mac-shot" src="screenshot.png" alt="Gestion Domicile sur Mac">
+          <div class="iphone-frame" id="iphone-shot-fr">
+            <img class="ios-shot" src="screenshot-ios.png" alt="Gestion Domicile sur iPhone" onerror="hideIOSShot('iphone-shot-fr')">
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <div class="container">
+          <h2>Un même domicile, deux expériences</h2>
+          <p class="section-intro">
+            Utilisez la puissance du Mac pour organiser votre domicile en détail et gardez les informations essentielles
+            avec vous sur iPhone. Les deux applications partagent les mêmes données lorsque la synchronisation iCloud est activée.
+          </p>
+
+          <div class="platform-grid">
+            <div class="card">
+              <span class="platform-kicker">macOS</span>
+              <h3>Gestion complète sur grand écran</h3>
+              <p>Organisez pièces, objets, documents, entretiens et historique avec une interface conçue pour le Mac.</p>
+            </div>
+            <div class="card">
+              <span class="platform-kicker">iOS</span>
+              <h3>Votre domicile toujours avec vous</h3>
+              <p>Consultez vos informations, suivez vos tâches et retrouvez vos documents directement depuis votre iPhone.</p>
+            </div>
+            <div class="card">
+              <span class="platform-kicker">iCloud</span>
+              <h3>Des données synchronisées</h3>
+              <p>Les modifications compatibles sont synchronisées via iCloud entre les appareils connectés au même compte Apple.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <h2>Tout ce qu’il faut pour gérer votre logement</h2>
+          <p class="section-intro">
+            Gestion Domicile rassemble les informations utiles de votre logement dans une structure simple et cohérente,
+            accessible sur Mac comme sur iPhone.
+          </p>
+
+          <div class="grid">
+            <div class="card"><h3>Tableau de bord</h3><p>Une vue synthétique du domicile, des priorités, échéances et activités récentes.</p></div>
+            <div class="card"><h3>Pièces</h3><p>Organisation de votre logement pièce par pièce, avec les informations et équipements associés.</p></div>
+            <div class="card"><h3>Objets & équipements</h3><p>Centralisez les informations utiles sur vos appareils, meubles et installations.</p></div>
+            <div class="card"><h3>Documents</h3><p>Factures, assurances, notices, devis, diagnostics, plans et autres documents utiles.</p></div>
+            <div class="card"><h3>Entretiens</h3><p>Planifiez les échéances et conservez l’historique des interventions réalisées.</p></div>
+            <div class="card"><h3>Journal & historique</h3><p>Gardez une trace claire des événements et opérations importants liés à votre domicile.</p></div>
+            <div class="card"><h3>Import, scan & OCR</h3><p>Ajoutez vos documents et factures depuis vos fichiers ou l’appareil photo. La reconnaissance de texte peut extraire automatiquement les principales informations d’une facture afin de préremplir les champs correspondants.</p></div>
+            <div class="card"><h3>Synchronisation iCloud</h3><p>Gardez les données compatibles à jour entre votre Mac et votre iPhone.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container two-col">
+          <div class="card">
+            <h2 style="text-align:left;">Pensée pour le Mac</h2>
+            <ul>
+              <li>Interface adaptée au grand écran et à la navigation macOS.</li>
+              <li>Gestion détaillée de votre domicile et de ses équipements.</li>
+              <li>Consultation confortable des documents et historiques.</li>
+              <li>Fonctions d’import / export pour vos sauvegardes et transferts.</li>
+              <li>Synchronisation iCloud facultative avec la version iPhone.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h2 style="text-align:left;">Pensée pour l’iPhone</h2>
+            <ul>
+              <li>Accès rapide aux informations du domicile où que vous soyez.</li>
+              <li>Vue des tâches et échéances à venir.</li>
+              <li>Consultation des objets, documents et entretiens.</li>
+              <li>Ajout et import de documents depuis l’iPhone selon les fonctions disponibles.</li>
+              <li>Synchronisation iCloud facultative avec la version Mac.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="card sync-card">
+            <span class="platform-kicker">iCloud / CloudKit</span>
+            <h2>Vos données vous suivent</h2>
+            <p class="section-intro" style="margin-bottom:0;">
+              Activez la synchronisation iCloud sur vos appareils utilisant le même compte Apple pour retrouver
+              les données compatibles de Gestion Domicile sur Mac et iPhone.
+            </p>
+            <div class="sync-flow" aria-label="Synchronisation entre Mac, iCloud et iPhone">
+              <span class="sync-node">Mac</span>
+              <span>↔</span>
+              <span class="sync-node">iCloud</span>
+              <span>↔</span>
+              <span class="sync-node">iPhone</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container faq">
+          <h2>FAQ</h2>
+
+          <details>
+            <summary>Gestion Domicile est-elle disponible sur Mac et iPhone ?</summary>
+            <p>
+              Oui. Gestion Domicile existe en version macOS et en version iOS. Les deux applications sont conçues pour utiliser
+              les mêmes données lorsque la synchronisation iCloud est activée.
+            </p>
+          </details>
+
+          <details>
+            <summary>Ai-je besoin d’un compte iCloud pour utiliser l’application ?</summary>
+            <p>
+              Un compte iCloud n’est pas nécessaire pour utiliser localement Gestion Domicile sur un appareil. En revanche,
+              la synchronisation entre votre Mac et votre iPhone nécessite qu’iCloud soit disponible et que les appareils utilisent
+              le même compte Apple.
+            </p>
+          </details>
+
+          <details>
+            <summary>Comment synchroniser mes données entre mon Mac et mon iPhone ?</summary>
+            <p>
+              Utilisez le même compte iCloud sur les deux appareils, vérifiez qu’iCloud est disponible, puis activez la synchronisation
+              iCloud dans Gestion Domicile sur les appareils concernés. Les données compatibles sont ensuite synchronisées via iCloud/CloudKit.
+            </p>
+          </details>
+
+          <details>
+            <summary>Que se passe-t-il si mon Mac ou mon iPhone n’a pas de connexion Internet ?</summary>
+            <p>
+              Vous pouvez continuer à utiliser les données déjà disponibles localement. Lorsque l’accès à iCloud redevient disponible,
+              les changements en attente peuvent être synchronisés.
+            </p>
+          </details>
+
+          <details>
+            <summary>Mes données sont-elles envoyées sur un serveur du développeur ?</summary>
+            <p>
+              Non. Gestion Domicile n’utilise pas de serveur applicatif propriétaire pour centraliser les données de votre domicile.
+              Lorsque vous activez la synchronisation, les données concernées transitent par les services iCloud/CloudKit d’Apple.
+            </p>
+          </details>
+
+          <details>
+            <summary>Puis-je utiliser uniquement la version Mac ou uniquement la version iPhone ?</summary>
+            <p>
+              Oui. Chaque application peut être utilisée sur son appareil. La synchronisation iCloud devient utile lorsque vous souhaitez
+              retrouver vos données sur plusieurs appareils compatibles.
+            </p>
+          </details>
+
+          <details>
+            <summary>Comment sauvegarder ou transférer mes données ?</summary>
+            <p>
+              Sur Mac, vous pouvez utiliser les fonctions d’import / export proposées par l’application. La synchronisation iCloud est
+              complémentaire : elle permet de maintenir les données compatibles à jour entre vos appareils.
+            </p>
+          </details>
+
+          <details>
+            <summary>Comment fonctionne la reconnaissance des factures ?</summary>
+            <p>
+              Sur les appareils compatibles, vous pouvez scanner ou importer une facture. Gestion Domicile analyse le document afin de proposer
+              automatiquement certaines informations. Vous pouvez vérifier et modifier les données détectées avant de les enregistrer.
+            </p>
+          </details>
+
+          <details>
+            <summary>Comment signaler un problème de synchronisation ?</summary>
+            <p>
+              Envoyez un email avec une description du problème, la version de Gestion Domicile utilisée, vos versions de macOS et d’iOS
+              si les deux applications sont concernées et, si possible, une capture d’écran. Précisez également si iCloud est activé sur
+              les appareils concernés.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section id="support">
+        <div class="container">
+          <div class="support">
+            <h2>Support</h2>
+            <p>Une question, un bug, un problème de synchronisation ou une suggestion concernant la version Mac ou iPhone ?</p>
+            <a class="email" href="mailto:gestiondomicile@icloud.com">gestiondomicile@icloud.com</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="privacy">
+        <div class="container privacy card">
+          <h2>Politique de confidentialité</h2>
+          <p>Dernière mise à jour : 14 septembre 2026</p>
+
+          <p class="privacy-note">
+            Cette politique couvre les versions macOS et iOS de Gestion Domicile. L’application ne nécessite pas la création
+            d’un compte propre à Gestion Domicile et n’exploite pas de serveur applicatif propriétaire pour centraliser les données de votre domicile.
+          </p>
+
+          <h3>Données traitées par l’application</h3>
+          <p>
+            Les informations que vous saisissez peuvent notamment concerner votre logement, vos pièces, vos objets et équipements,
+            vos documents, vos entretiens, vos échéances et les informations associées. Ces données sont utilisées uniquement
+            pour fournir les fonctions de Gestion Domicile.
+          </p>
+
+          <h3>Stockage local</h3>
+          <p>
+            Les données nécessaires au fonctionnement de Gestion Domicile sont conservées localement sur l’appareil sur lequel
+            l’application est utilisée. Vous pouvez utiliser l’application sans activer la synchronisation iCloud.
+          </p>
+
+          <h3>Synchronisation iCloud / CloudKit</h3>
+          <p>
+            Si vous activez la synchronisation iCloud, Gestion Domicile utilise les services iCloud/CloudKit d’Apple afin de synchroniser
+            les données compatibles entre vos appareils utilisant le même compte iCloud, notamment entre les versions macOS et iOS.
+            Cette fonctionnalité nécessite qu’iCloud soit disponible sur les appareils concernés.
+          </p>
+          <p>
+            Les données synchronisées sont transférées et stockées au moyen des services iCloud d’Apple dans l’environnement associé
+            à votre compte Apple. Gestion Domicile n’exploite pas de serveur applicatif propriétaire destiné à centraliser ces données.
+          </p>
+
+          <h3>Documents et fichiers</h3>
+          <p>
+            Les documents ajoutés dans l’application restent associés aux données de Gestion Domicile. Lorsque la synchronisation iCloud
+            est activée et que ces éléments font partie des données synchronisées par l’application, ils peuvent être transférés et stockés
+            via les services iCloud d’Apple afin d’être disponibles sur vos autres appareils compatibles.
+          </p>
+
+          <h3>Appareil photo, photothèque et fichiers sur iOS</h3>
+          <p>
+            Lorsque vous utilisez une fonction de scan, d’import ou d’ajout de document sur iPhone, Gestion Domicile peut demander l’accès
+            à l’appareil photo, à la photothèque ou aux fichiers. Ces autorisations sont utilisées uniquement pour les éléments que vous choisissez
+            d’ajouter à l’application.
+          </p>
+
+          <h3>Reconnaissance de texte (OCR) des factures</h3>
+          <p>
+            Lorsque vous scannez ou importez une facture, Gestion Domicile peut analyser son contenu afin d’en extraire automatiquement
+            certaines informations utiles, telles que la date ou le montant, afin de préremplir les champs de l’application.
+            Cette analyse est effectuée localement sur votre appareil à l’aide des technologies Apple. Le contenu de vos factures
+            n’est pas envoyé à un serveur du développeur ni à un service tiers de reconnaissance de texte.
+          </p>
+
+          <h3>Import et export</h3>
+          <p>
+            L'application peut proposer des fonctions d’import et d’export afin de sauvegarder ou restaurer vos données.
+            Vous êtes responsable de l’emplacement où vous stockez les sauvegardes ou fichiers exportés.
+          </p>
+
+          <h3>Services tiers</h3>
+          <p>
+            L’utilisation d’iCloud est soumise aux conditions et politiques de confidentialité d’Apple. Si vous choisissez d’utiliser
+            un autre service pour stocker une sauvegarde ou un fichier exporté, les politiques de confidentialité de ce service s’appliquent également.
+          </p>
+
+          <h3>Support</h3>
+          <p>
+            Si vous contactez le support par email, les informations que vous fournissez volontairement seront utilisées uniquement
+            pour traiter votre demande et vous répondre.
+          </p>
+
+          <h3>Contact</h3>
+          <p>
+            Pour toute question concernant cette politique de confidentialité :
+            <a href="mailto:gestiondomicile@icloud.com">gestiondomicile@icloud.com</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © Gestion Domicile · macOS 2.0 · iOS · iCloud ·
+      <a href="#privacy">Politique de confidentialité</a>
+    </footer>
+  </div>
+
+  <!-- ============================ ENGLISH ============================ -->
+  <div data-lang="en">
+    <header>
+      <div class="container">
+        <img class="app-icon" src="icon.png" alt="Gestion Domicile app icon">
+        <h1>Your home,<br>on Mac and iPhone.</h1>
+        <p class="lead">
+          Gestion Domicile brings your home information, equipment, documents and maintenance together on macOS and iOS.
+          With iCloud, your data stays synchronized between your Mac and iPhone.
+        </p>
+        <div class="compatibility">macOS · iOS · iCloud</div>
+
+        <div class="store-actions">
+          <div class="store-action">
+            <span class="store-label">macOS · Version 2.0</span>
+            <a class="store-link" href="https://apps.apple.com/app/6763304495" target="_blank" rel="noopener">View on the App Store</a>
+          </div>
+          <div class="store-action" id="ios-store-card-en">
+            <span class="store-label">iOS · iPhone</span>
+            <a id="ios-store-link-en" class="store-link" href="#" target="_blank" rel="noopener" hidden>View on the App Store</a>
+            <span id="ios-store-status-en" class="store-status">Coming soon</span>
+          </div>
+        </div>
+
+        <div class="device-showcase">
+          <img class="mac-shot" src="screenshot.png" alt="Gestion Domicile on Mac">
+          <div class="iphone-frame" id="iphone-shot-en">
+            <img class="ios-shot" src="screenshot-ios.png" alt="Gestion Domicile on iPhone" onerror="hideIOSShot('iphone-shot-en')">
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <div class="container">
+          <h2>One home, two experiences</h2>
+          <p class="section-intro">
+            Use the power of your Mac to organize your home in detail and keep essential information with you on iPhone.
+            Both apps share the same compatible data when iCloud synchronization is enabled.
+          </p>
+
+          <div class="platform-grid">
+            <div class="card">
+              <span class="platform-kicker">macOS</span>
+              <h3>Complete management on a larger screen</h3>
+              <p>Organize rooms, items, documents, maintenance and history with an interface designed for Mac.</p>
+            </div>
+            <div class="card">
+              <span class="platform-kicker">iOS</span>
+              <h3>Your home always with you</h3>
+              <p>Check information, follow tasks and find documents directly from your iPhone.</p>
+            </div>
+            <div class="card">
+              <span class="platform-kicker">iCloud</span>
+              <h3>Synchronized data</h3>
+              <p>Compatible changes are synchronized through iCloud between devices signed in to the same Apple account.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <h2>Everything you need to manage your home</h2>
+          <p class="section-intro">
+            Gestion Domicile brings useful home information together in a simple, consistent structure,
+            available on both Mac and iPhone.
+          </p>
+
+          <div class="grid">
+            <div class="card"><h3>Dashboard</h3><p>A clear overview of your home, priorities, due dates and recent activity.</p></div>
+            <div class="card"><h3>Rooms</h3><p>Organize your home room by room, with related information and equipment.</p></div>
+            <div class="card"><h3>Items & equipment</h3><p>Keep useful information about appliances, furniture and installations together.</p></div>
+            <div class="card"><h3>Documents</h3><p>Invoices, insurance files, manuals, estimates, diagnostics, plans and other useful documents.</p></div>
+            <div class="card"><h3>Maintenance</h3><p>Plan due dates and keep a history of completed interventions.</p></div>
+            <div class="card"><h3>Journal & history</h3><p>Keep a clear record of important events and operations related to your home.</p></div>
+            <div class="card"><h3>Import, scan & OCR</h3><p>Add documents and invoices from files or the camera. Text recognition can automatically extract key invoice information to prefill the relevant fields.</p></div>
+            <div class="card"><h3>iCloud synchronization</h3><p>Keep compatible data up to date between your Mac and iPhone.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container two-col">
+          <div class="card">
+            <h2 style="text-align:left;">Designed for Mac</h2>
+            <ul>
+              <li>An interface adapted to larger screens and macOS navigation.</li>
+              <li>Detailed management of your home and equipment.</li>
+              <li>Comfortable access to documents and history.</li>
+              <li>Import / export features for backups and transfers.</li>
+              <li>Optional iCloud synchronization with the iPhone version.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h2 style="text-align:left;">Designed for iPhone</h2>
+            <ul>
+              <li>Quick access to home information wherever you are.</li>
+              <li>View upcoming tasks and due dates.</li>
+              <li>Access items, documents and maintenance information.</li>
+              <li>Add and import documents from iPhone using available features.</li>
+              <li>Optional iCloud synchronization with the Mac version.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="card sync-card">
+            <span class="platform-kicker">iCloud / CloudKit</span>
+            <h2>Your data follows you</h2>
+            <p class="section-intro" style="margin-bottom:0;">
+              Enable iCloud synchronization on devices using the same Apple account to access compatible Gestion Domicile data
+              on Mac and iPhone.
+            </p>
+            <div class="sync-flow" aria-label="Synchronization between Mac, iCloud and iPhone">
+              <span class="sync-node">Mac</span>
+              <span>↔</span>
+              <span class="sync-node">iCloud</span>
+              <span>↔</span>
+              <span class="sync-node">iPhone</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container faq">
+          <h2>FAQ</h2>
+
+          <details>
+            <summary>Is Gestion Domicile available on Mac and iPhone?</summary>
+            <p>
+              Yes. Gestion Domicile is available as a macOS app and an iOS app. Both apps are designed to use the same data
+              when iCloud synchronization is enabled.
+            </p>
+          </details>
+
+          <details>
+            <summary>Do I need an iCloud account to use the app?</summary>
+            <p>
+              An iCloud account is not required to use Gestion Domicile locally on a device. However, synchronization between
+              your Mac and iPhone requires iCloud to be available and the devices to use the same Apple account.
+            </p>
+          </details>
+
+          <details>
+            <summary>How do I synchronize data between my Mac and iPhone?</summary>
+            <p>
+              Use the same iCloud account on both devices, make sure iCloud is available, then enable iCloud synchronization
+              in Gestion Domicile on the relevant devices. Compatible data is then synchronized through iCloud/CloudKit.
+            </p>
+          </details>
+
+          <details>
+            <summary>What happens if my Mac or iPhone is offline?</summary>
+            <p>
+              You can continue using data already available locally. When iCloud becomes available again, pending changes can be synchronized.
+            </p>
+          </details>
+
+          <details>
+            <summary>Is my data sent to the developer's server?</summary>
+            <p>
+              No. Gestion Domicile does not use a proprietary application server to centralize your home data.
+              When synchronization is enabled, the relevant data uses Apple's iCloud/CloudKit services.
+            </p>
+          </details>
+
+          <details>
+            <summary>Can I use only the Mac version or only the iPhone version?</summary>
+            <p>
+              Yes. Each app can be used on its device. iCloud synchronization becomes useful when you want compatible data
+              to be available across multiple devices.
+            </p>
+          </details>
+
+          <details>
+            <summary>How can I back up or transfer my data?</summary>
+            <p>
+              On Mac, you can use the import / export features provided by the app. iCloud synchronization is complementary:
+              it keeps compatible data up to date between your devices.
+            </p>
+          </details>
+
+          <details>
+            <summary>How does invoice recognition work?</summary>
+            <p>
+              On compatible devices, you can scan or import an invoice. Gestion Domicile analyzes the document and suggests relevant
+              information automatically. You can review and edit the detected data before saving it.
+            </p>
+          </details>
+
+          <details>
+            <summary>How do I report a synchronization issue?</summary>
+            <p>
+              Send an email describing the issue, the Gestion Domicile version you are using, your macOS and iOS versions if both apps
+              are involved and, if possible, a screenshot. Please also indicate whether iCloud is enabled on the devices concerned.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section id="support-en">
+        <div class="container">
+          <div class="support">
+            <h2>Support</h2>
+            <p>Questions, bugs, synchronization issues or suggestions about the Mac or iPhone version?</p>
+            <a class="email" href="mailto:gestiondomicile@icloud.com">gestiondomicile@icloud.com</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="privacy-en">
+        <div class="container privacy card">
+          <h2>Privacy Policy</h2>
+          <p>Last updated: September 14, 2026</p>
+
+          <p class="privacy-note">
+            This policy covers the macOS and iOS versions of Gestion Domicile. The app does not require a separate Gestion Domicile account
+            and does not operate a proprietary application server to centralize your home data.
+          </p>
+
+          <h3>Data processed by the app</h3>
+          <p>
+            Information you enter may include details about your home, rooms, items and equipment, documents, maintenance,
+            due dates and related information. This data is used only to provide Gestion Domicile features.
+          </p>
+
+          <h3>Local storage</h3>
+          <p>
+            Data required for Gestion Domicile to operate is stored locally on the device where the app is used.
+            You can use the app without enabling iCloud synchronization.
+          </p>
+
+          <h3>iCloud / CloudKit synchronization</h3>
+          <p>
+            If you enable iCloud synchronization, Gestion Domicile uses Apple's iCloud/CloudKit services to synchronize compatible data
+            between devices using the same iCloud account, including the macOS and iOS versions. This feature requires iCloud to be available
+            on the relevant devices.
+          </p>
+          <p>
+            Synchronized data is transferred and stored using Apple's iCloud services in the environment associated with your Apple account.
+            Gestion Domicile does not operate a proprietary application server intended to centralize this data.
+          </p>
+
+          <h3>Documents and files</h3>
+          <p>
+            Documents added to the app remain associated with Gestion Domicile data. When iCloud synchronization is enabled and these items
+            are part of the data synchronized by the app, they may be transferred and stored through Apple's iCloud services so they can be
+            available on your other compatible devices.
+          </p>
+
+          <h3>Camera, photo library and files on iOS</h3>
+          <p>
+            When you use a scan, import or document-adding feature on iPhone, Gestion Domicile may request access to the camera, photo library
+            or files. These permissions are used only for the items you choose to add to the app.
+          </p>
+
+          <h3>Invoice text recognition (OCR)</h3>
+          <p>
+            When you scan or import an invoice, Gestion Domicile may analyze its content to automatically extract useful information,
+            such as the date or amount, in order to prefill the relevant app fields. This analysis is performed locally on your device
+            using Apple technologies. The contents of your invoices are not sent to the developer's server or to a third-party
+            text recognition service.
+          </p>
+
+          <h3>Import and export</h3>
+          <p>
+            The application may provide import and export features to back up or restore your data.
+            You are responsible for where you store exported backups or files.
+          </p>
+
+          <h3>Third-party services</h3>
+          <p>
+            Use of iCloud is subject to Apple's terms and privacy policies. If you choose to use another service to store a backup or exported file,
+            that service's privacy policies also apply.
+          </p>
+
+          <h3>Support</h3>
+          <p>
+            If you contact support by email, the information you voluntarily provide will be used only to process and respond to your request.
+          </p>
+
+          <h3>Contact</h3>
+          <p>
+            For questions about this Privacy Policy:
+            <a href="mailto:gestiondomicile@icloud.com">gestiondomicile@icloud.com</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © Gestion Domicile · macOS 2.0 · iOS · iCloud ·
+      <a href="#privacy-en">Privacy Policy</a>
+    </footer>
+  </div>
+
+  <script>
+    // Existing macOS App Store page.
+    const MAC_APP_STORE_URL = "https://apps.apple.com/app/6763304495";
+
+    // Add the iOS App Store URL here once the iPhone version is published.
+    // If macOS and iOS ultimately use the same Universal Purchase App Store page,
+    // you can simply use the same URL as MAC_APP_STORE_URL.
+    const IOS_APP_STORE_URL = "";
+
+    function setLang(lang) {
+      document.documentElement.classList.remove('lang-fr', 'lang-en');
+      document.documentElement.classList.add('lang-' + lang);
+      document.documentElement.lang = lang;
+      localStorage.setItem('preferredLanguage', lang);
+    }
+
+    function configureIOSStoreLink() {
+      if (!IOS_APP_STORE_URL) return;
+
+      const links = [
+        document.getElementById('ios-store-link-fr'),
+        document.getElementById('ios-store-link-en')
+      ];
+      const statuses = [
+        document.getElementById('ios-store-status-fr'),
+        document.getElementById('ios-store-status-en')
+      ];
+
+      links.forEach(link => {
+        if (!link) return;
+        link.href = IOS_APP_STORE_URL;
+        link.hidden = false;
+      });
+      statuses.forEach(status => {
+        if (status) status.hidden = true;
+      });
+    }
+
+    function hideIOSShot(id) {
+      const element = document.getElementById(id);
+      if (element) element.style.display = 'none';
+    }
+
+    const savedLang = localStorage.getItem('preferredLanguage');
+    const browserLang = navigator.language || navigator.userLanguage;
+    setLang(savedLang || (browserLang && browserLang.startsWith('fr') ? 'fr' : 'en'));
+    configureIOSStoreLink();
+  </script>
+</body>
+</html>
